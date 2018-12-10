@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace surfaceCircle
 {
+    delegate double Result(int n);
     class Program
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            double n;
+            const double PI = 3.14;
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            Result surface = num => (num * num) * PI;
+
+            Console.WriteLine("Enter integer value of your circle radius");
+            n = surface(Convert.ToInt32(Console.ReadLine()));
+
+            Console.WriteLine("The sruface of your circle is {0}", n);
+            Console.Read();
         }
     }
 }
